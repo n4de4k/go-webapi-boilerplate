@@ -1,6 +1,6 @@
 package accessor
 
-import "github.com/n4de4k/web-api-boilerplate/app/models"
+import "github.com/n4de4k/web-api-boilerplate/api/models"
 
 type UserMongoAccessorImpl struct {
 	// should has db attribute --> in this case mongo

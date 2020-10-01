@@ -1,8 +1,8 @@
 package component
 
 import (
-	"github.com/n4de4k/web-api-boilerplate/app/accessor"
-	accessorImpl "github.com/n4de4k/web-api-boilerplate/app/impl/accessor"
+	accessorImpl "github.com/n4de4k/web-api-boilerplate/internal/accessor"
+	"github.com/n4de4k/web-api-boilerplate/pkg/accessor"
 )
 
 type DataComponentImpl struct {
@@ -11,6 +11,7 @@ type DataComponentImpl struct {
 
 func NewDataComponentImpl() *DataComponentImpl {
 	userAccessor := accessorImpl.NewUserMongoAccessorImpl()
+
 
 	return &DataComponentImpl{
 		userAccessor,

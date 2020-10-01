@@ -1,8 +1,8 @@
 package main // make sure to change package name
 import (
 	"github.com/joho/godotenv"
-	"github.com/n4de4k/web-api-boilerplate/api/rest"
-	"github.com/n4de4k/web-api-boilerplate/app/impl/component"
+	"github.com/n4de4k/web-api-boilerplate/delivery/rest"
+	"github.com/n4de4k/web-api-boilerplate/internal/component"
 )
 
 func main() {

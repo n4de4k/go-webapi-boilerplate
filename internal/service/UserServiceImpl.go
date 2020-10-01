@@ -2,8 +2,8 @@ package service
 
 import (
 	"errors"
-	"github.com/n4de4k/web-api-boilerplate/app/accessor"
-	v1 "github.com/n4de4k/web-api-boilerplate/app/resources/v1"
+	v1 "github.com/n4de4k/web-api-boilerplate/api/resources/v1"
+	"github.com/n4de4k/web-api-boilerplate/pkg/accessor"
 )
 
 type UserServiceImpl struct {
