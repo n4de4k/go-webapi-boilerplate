@@ -2,12 +2,12 @@ package rest
 
 import (
 	"github.com/gin-gonic/gin"
-	v1 "github.com/n4de4k/web-api-boilerplate/api/resources/v1"
+	"github.com/n4de4k/web-api-boilerplate/models"
 	"net/http"
 )
 
 func (handler *Handler) SignIn(c *gin.Context) {
-	var request v1.SignInRequest
+	var request models.SignInRequest
 	if err := c.ShouldBindJSON(&request); err != nil {
 		c.Error(err)
 		return

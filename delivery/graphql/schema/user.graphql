@@ -1,0 +1,19 @@
+type Query {
+    GetUser(email: String!): User
+}
+
+type Mutation {
+    SignIn(
+        email: String!
+        password: String!
+    ) : SignInResponse
+}
+
+type User {
+    email: String!
+    fullName: String!
+}
+
+type SignInResponse {
+    token: String!
+}

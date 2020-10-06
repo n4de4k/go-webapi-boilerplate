@@ -1,11 +1,13 @@
-package rest
+package graphql
 
 import (
 	"context"
 	"fmt"
 	"github.com/gin-gonic/gin"
-	component2 "github.com/n4de4k/web-api-boilerplate/component"
-	"github.com/n4de4k/web-api-boilerplate/delivery/rest/internal"
+	"github.com/graph-gophers/graphql-go"
+	"github.com/n4de4k/web-api-boilerplate/component"
+	"github.com/n4de4k/web-api-boilerplate/delivery/graphql/lib"
+	"github.com/n4de4k/web-api-boilerplate/delivery/graphql/resolver"
 	"log"
 	"net/http"
 	"os"
@@ -13,15 +15,30 @@ import (
 	"time"
 )
 
-type Handler struct {
-	serviceComponent component2.ServiceComponent
+func playgroundHandler() gin.HandlerFunc {
+	playground := lib.Playground{}
+	return func(c *gin.Context) {
+		playground.ServeHTTP(c.Writer, c.Request)
+	}
 }
 
-func NewHandler(serviceComponent component2.ServiceComponent) *Handler {
-	return &Handler{serviceComponent}
+func grapqhlHandler(services component.ServiceComponent) gin.HandlerFunc {
+	opts := []graphql.SchemaOpt{graphql.UseFieldResolvers()}
+	schema := NewSchema()
+	gqlSchema := graphql.MustParseSchema(
+		*schema,
+		&resolver.Resolver{Services: services},
+		opts...,
+	)
+
+	gql := lib.GraphQL{Schema: gqlSchema}
+
+	return func(c *gin.Context) {
+		gql.ServeHTTP(c.Writer, c.Request)
+	}
 }
 
-func Init(handler *Handler) {
+func InitGraphQLServer(services component.ServiceComponent) {
 	env := os.Getenv("APP_ENV")
 	port := os.Getenv("APP_PORT")
 	if env == "production" {
@@ -30,11 +47,7 @@ func Init(handler *Handler) {
 
 	r := gin.New()
 
-
 	r.Use(gin.Recovery())
-	r.Use(internal.JSONAppErrorReporter())
-
-	// Enable logger middleware with custom format
 	r.Use(gin.LoggerWithFormatter(func(param gin.LogFormatterParams) string {
 		return fmt.Sprintf("%s - [%s] \"%s %s %s %d %s \"%s\" %s\"\n",
 			param.ClientIP,
@@ -49,15 +62,8 @@ func Init(handler *Handler) {
 		)
 	}))
 
-
-	r.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "You service is on",
-		})
-	})
-
-	// --> Register all routes here
-	r.POST("/login", handler.SignIn)
+	r.GET("/graphql", playgroundHandler())
+	r.POST("/graphql", grapqhlHandler(services))
 
 	log.Println(">>>> Running Application on Port", port)
 	srv := &http.Server{
