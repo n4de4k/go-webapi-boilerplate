@@ -1,10 +1,10 @@
 package main // make sure to change package name
+
 import (
 	"github.com/joho/godotenv"
-	"github.com/n4de4k/web-api-boilerplate/component/impl"
-	gqlDelivery "github.com/n4de4k/web-api-boilerplate/delivery/graphql"
-
-	//"github.com/n4de4k/web-api-boilerplate/delivery/rest"
+	impl "github.com/n4de4k/go-webapi-boilerplate/app/provider/v1"
+	gqlDelivery "github.com/n4de4k/go-webapi-boilerplate/delivery/graphql"
+	//"github.com/n4de4k/go-webapi-boilerplate/delivery/rest"
 )
 
 func main() {

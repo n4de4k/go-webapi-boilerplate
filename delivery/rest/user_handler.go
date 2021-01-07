@@ -2,7 +2,7 @@ package rest
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/n4de4k/web-api-boilerplate/app/dto"
+	"github.com/n4de4k/go-webapi-boilerplate/app/dto"
 	"net/http"
 )
 

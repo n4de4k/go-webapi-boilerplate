@@ -1,7 +1,7 @@
 package service
 
 import (
-	"github.com/n4de4k/web-api-boilerplate/app/dto"
+	"github.com/n4de4k/go-webapi-boilerplate/app/dto"
 )
 
 type UserService interface {

@@ -1,8 +1,8 @@
 package v1
 
 import (
-	service2 "github.com/n4de4k/web-api-boilerplate/app/service"
-	"github.com/n4de4k/web-api-boilerplate/app/service/impl"
+	service2 "github.com/n4de4k/go-webapi-boilerplate/app/service"
+	"github.com/n4de4k/go-webapi-boilerplate/app/service/impl"
 )
 
 type ServiceComponentImpl struct {

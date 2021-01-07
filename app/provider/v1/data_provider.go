@@ -1,8 +1,8 @@
 package v1
 
 import (
-	accessor2 "github.com/n4de4k/web-api-boilerplate/app/accessor"
-	"github.com/n4de4k/web-api-boilerplate/app/accessor/mongo"
+	accessor2 "github.com/n4de4k/go-webapi-boilerplate/app/accessor"
+	"github.com/n4de4k/go-webapi-boilerplate/app/accessor/mongo"
 )
 
 type DataComponentImpl struct {
