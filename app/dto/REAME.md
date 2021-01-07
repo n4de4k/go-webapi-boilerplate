@@ -1,0 +1,1 @@
+This directory will contain all of Data Transfer Object (contract between external services/apps with this service)

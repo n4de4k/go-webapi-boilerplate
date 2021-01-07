@@ -1,0 +1,1 @@
+This directory will contain all of the models or struct which represent all domains in this project. Used to wrap data fetched from database (mongo, postgre, or etc) or other storage (cache, etc).

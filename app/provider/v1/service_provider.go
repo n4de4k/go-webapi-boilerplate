@@ -1,8 +1,8 @@
-package impl
+package v1
 
 import (
-	service2 "github.com/n4de4k/web-api-boilerplate/service"
-	"github.com/n4de4k/web-api-boilerplate/service/impl"
+	service2 "github.com/n4de4k/web-api-boilerplate/app/service"
+	"github.com/n4de4k/web-api-boilerplate/app/service/impl"
 )
 
 type ServiceComponentImpl struct {

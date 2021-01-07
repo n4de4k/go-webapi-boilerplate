@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/gin-gonic/gin"
-	component2 "github.com/n4de4k/web-api-boilerplate/component"
+	component2 "github.com/n4de4k/web-api-boilerplate/app/provider"
 	"github.com/n4de4k/web-api-boilerplate/delivery/rest/internal"
 	"log"
 	"net/http"

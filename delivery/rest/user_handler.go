@@ -2,18 +2,18 @@ package rest
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/n4de4k/web-api-boilerplate/models"
+	"github.com/n4de4k/web-api-boilerplate/app/dto"
 	"net/http"
 )
 
 func (handler *Handler) SignIn(c *gin.Context) {
-	var request models.SignInRequest
+	var request dto.SignInRequest
 	if err := c.ShouldBindJSON(&request); err != nil {
 		c.Error(err)
 		return
 	}
 
-	response, err := handler.serviceComponent.GetUserService().SignIn(request)
+	response, err := handler.serviceComponent.GetUserService().SignIn(&request)
 	if err != nil {
 		c.Error(err)
 		return

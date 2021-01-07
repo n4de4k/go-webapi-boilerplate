@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/graph-gophers/graphql-go"
-	"github.com/n4de4k/web-api-boilerplate/component"
+	"github.com/n4de4k/web-api-boilerplate/app/provider"
 	"github.com/n4de4k/web-api-boilerplate/delivery/graphql/lib"
 	"github.com/n4de4k/web-api-boilerplate/delivery/graphql/resolver"
 	"log"
@@ -22,7 +22,7 @@ func playgroundHandler() gin.HandlerFunc {
 	}
 }
 
-func grapqhlHandler(services component.ServiceComponent) gin.HandlerFunc {
+func grapqhlHandler(services provider.ServiceComponent) gin.HandlerFunc {
 	opts := []graphql.SchemaOpt{graphql.UseFieldResolvers()}
 	schema := NewSchema()
 	gqlSchema := graphql.MustParseSchema(
@@ -38,7 +38,7 @@ func grapqhlHandler(services component.ServiceComponent) gin.HandlerFunc {
 	}
 }
 
-func InitGraphQLServer(services component.ServiceComponent) {
+func InitGraphQLServer(services provider.ServiceComponent) {
 	env := os.Getenv("APP_ENV")
 	port := os.Getenv("APP_PORT")
 	if env == "production" {

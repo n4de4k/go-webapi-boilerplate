@@ -1,7 +1,7 @@
-package models
+package dto
 
 type (
-	User struct {
+	UserResponse struct {
 		Email string `json:"email"`
 		FullName string `json:"fullName"`
 		Password string `json:"password"`

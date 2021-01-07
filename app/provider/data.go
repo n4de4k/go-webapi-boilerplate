@@ -1,7 +1,7 @@
-package component
+package provider
 
 import (
-	"github.com/n4de4k/web-api-boilerplate/accessor"
+	"github.com/n4de4k/web-api-boilerplate/app/accessor"
 )
 
 type DataComponent interface {
